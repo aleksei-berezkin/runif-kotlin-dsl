@@ -18,6 +18,7 @@ object ServiceMsg03 : Pipeline({
 
     job {
         id("Job1")
+        name = "Job1" // YAML has no name and falls back to the id; Kotlin DSL requires one
 
         steps {
             script {
