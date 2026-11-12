@@ -21,6 +21,7 @@ object Branch02 : Pipeline({
             script {
                 scriptContent = "echo 'Build'"
             }
+
             script {
                 scriptContent = "echo 'Deploy'"
                 conditions {

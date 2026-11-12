@@ -24,11 +24,13 @@ object Status01 : Pipeline({
                     exit 1
                 """.trimIndent()
             }
+
             script {
-                scriptContent = "echo \"Deploy\""
+                scriptContent = "echo 'Deploy'"
             }
+
             script {
-                scriptContent = "echo \"Cleanup\""
+                scriptContent = "echo 'Cleanup'"
                 executionMode = BuildStep.ExecutionMode.RUN_ONLY_ON_FAILURE // job-failed
             }
         }

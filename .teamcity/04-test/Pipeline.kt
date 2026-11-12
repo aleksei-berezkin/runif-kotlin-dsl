@@ -26,12 +26,14 @@ object Test04 : Pipeline({
                     echo "##teamcity[testFinished name='testHi']"
                 """.trimIndent()
             }
+
             script {
-                scriptContent = "echo \"Cleanup -- Step 2\""
+                scriptContent = "echo 'Cleanup -- Step 2'"
                 executionMode = BuildStep.ExecutionMode.RUN_ONLY_ON_FAILURE // job-failed
             }
+
             script {
-                scriptContent = "echo \"Step 3\""
+                scriptContent = "echo 'Step 3'"
                 executionMode = BuildStep.ExecutionMode.DEFAULT // steps-successful, produces no run-if
             }
         }

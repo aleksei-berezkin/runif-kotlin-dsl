@@ -18,23 +18,25 @@ object ServiceMsg03 : Pipeline({
 
     job {
         id("Job1")
-        name = "Job1" // YAML has no name and falls back to the id; Kotlin DSL requires one
+        name = "Job1"
 
         steps {
             script {
-                scriptContent = "echo \"Step 1\""
+                scriptContent = "echo 'Step 1'"
                 conditions {
                     equals("change_me", "true")
                 }
             }
+
             script {
                 scriptContent = """
                     echo "Step 2"
                     echo "##teamcity[setParameter name='change_me' value='true']"
                 """.trimIndent()
             }
+
             script {
-                scriptContent = "echo \"Step 3\""
+                scriptContent = "echo 'Step 3'"
                 conditions {
                     equals("change_me", "true")
                 }
